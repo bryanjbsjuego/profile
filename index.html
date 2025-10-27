@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Desarrollador Full Stack</title>
+    <title>Full Stack Developer - José Bryan Solis Jiménez</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -17,7 +17,7 @@
             }
         }
     </script>
-    <link href="styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body class="bg-gray-50">
     <!-- Header/Navigation -->
@@ -27,13 +27,19 @@
                 <div class="flex-shrink-0">
                     <span class="text-2xl font-bold gradient-text">{ JBSJ }</span>
                 </div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#inicio" class="text-gray-700 hover:text-primary transition">Inicio</a>
-                    <a href="#sobre-mi" class="text-gray-700 hover:text-primary transition">Sobre mí</a>
-                    <a href="#experiencia" class="text-gray-700 hover:text-primary transition">Experiencia</a>
-                    <a href="#proyectos" class="text-gray-700 hover:text-primary transition">Proyectos</a>
-                    <a href="#tecnologias" class="text-gray-700 hover:text-primary transition">Tecnologías</a>
-                    <a href="#contacto" class="text-gray-700 hover:text-primary transition">Contacto</a>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#inicio" class="text-gray-700 hover:text-primary transition" data-i18n="nav.home">Inicio</a>
+                    <a href="#sobre-mi" class="text-gray-700 hover:text-primary transition" data-i18n="nav.about">Sobre mí</a>
+                    <a href="#experiencia" class="text-gray-700 hover:text-primary transition" data-i18n="nav.experience">Experiencia</a>
+                    <a href="#proyectos" class="text-gray-700 hover:text-primary transition" data-i18n="nav.projects">Proyectos</a>
+                    <a href="#tecnologias" class="text-gray-700 hover:text-primary transition" data-i18n="nav.tech">Tecnologías</a>
+                    <a href="#contacto" class="text-gray-700 hover:text-primary transition" data-i18n="nav.contact">Contacto</a>
+                    
+                    <!-- Language Selector -->
+                    <div class="flex gap-2 ml-4">
+                        <button onclick="changeLanguage('es')" id="lang-es" class="lang-btn px-3 py-1 rounded-lg font-semibold transition bg-primary text-white">ES</button>
+                        <button onclick="changeLanguage('en')" id="lang-en" class="lang-btn px-3 py-1 rounded-lg font-semibold transition bg-gray-200 text-gray-700 hover:bg-gray-300">EN</button>
+                    </div>
                 </div>
                 <button id="mobile-menu-btn" class="md:hidden text-gray-700">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -45,12 +51,16 @@
         <!-- Mobile menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
             <div class="px-2 pt-2 pb-3 space-y-1">
-                <a href="#inicio" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded">Inicio</a>
-                <a href="#sobre-mi" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded">Sobre mí</a>
-                <a href="#experiencia" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded">Experiencia</a>
-                <a href="#proyectos" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded">Proyectos</a>
-                <a href="#tecnologias" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded">Tecnologías</a>
-                <a href="#contacto" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded">Contacto</a>
+                <a href="#inicio" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded" data-i18n="nav.home">Inicio</a>
+                <a href="#sobre-mi" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded" data-i18n="nav.about">Sobre mí</a>
+                <a href="#experiencia" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded" data-i18n="nav.experience">Experiencia</a>
+                <a href="#proyectos" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded" data-i18n="nav.projects">Proyectos</a>
+                <a href="#tecnologias" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded" data-i18n="nav.tech">Tecnologías</a>
+                <a href="#contacto" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded" data-i18n="nav.contact">Contacto</a>
+                <div class="flex gap-2 px-3 py-2">
+                    <button onclick="changeLanguage('es')" class="lang-btn-mobile px-3 py-1 rounded-lg font-semibold transition">ES</button>
+                    <button onclick="changeLanguage('en')" class="lang-btn-mobile px-3 py-1 rounded-lg font-semibold transition">EN</button>
+                </div>
             </div>
         </div>
     </nav>
@@ -63,51 +73,38 @@
                     <h1 class="text-5xl md:text-6xl font-bold leading-tight">
                         José Bryan<br>Solis Jiménez
                     </h1>
-                    <p class="text-2xl md:text-3xl font-semibold text-purple-200">
+                    <p class="text-2xl md:text-3xl font-semibold text-purple-200" data-i18n="hero.title">
                         Desarrollador Full Stack
                     </p>
-                    <p class="text-lg text-purple-100 leading-relaxed">
+                    <p class="text-lg text-purple-100 leading-relaxed" data-i18n="hero.description">
                         Especializado en desarrollo backend y frontend, creando soluciones tecnológicas innovadoras.
                     </p>
                     <div class="flex flex-wrap gap-4">
-                        <a href="#contacto" class="bg-white text-primary px-8 py-3 rounded-full font-semibold hover:shadow-lg transform hover:-translate-y-1 transition">
+                        <a href="#contacto" class="bg-white text-primary px-8 py-3 rounded-full font-semibold hover:shadow-lg transform hover:-translate-y-1 transition" data-i18n="hero.contact">
                             Contáctame
                         </a>
-                        <a href="#proyectos" class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-primary transition">
+                        <a href="#proyectos" class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-primary transition" data-i18n="hero.projects">
                             Ver Proyectos
                         </a>
                     </div>
                     <div class="flex items-center gap-6 pt-4">
-  <p class="font-semibold text-white text-lg">Sígueme</p>
-
-  <!-- GitHub -->
-  <a href="https://github.com/bryanjbsjuego" 
-     target="_blank" 
-     class="text-gray-300 hover:text-purple-300 transition">
-    <svg class="w-7 h-7 md:w-8 md:h-8" fill="currentColor" viewBox="0 0 24 24">
-      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-    </svg>
-  </a>
-
-  <!-- LinkedIn -->
-  <a href="https://www.linkedin.com/in/jose-bryan-solis-jim%C3%A9nez-b434711a2/" 
-     target="_blank" 
-     class="text-gray-300 hover:text-purple-300 transition">
-    <svg class="w-7 h-7 md:w-8 md:h-8" fill="currentColor" viewBox="0 0 24 24">
-      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-    </svg>
-  </a>
-
-  <!-- Email -->
-  <a href="mailto:bryan.jbsj@gmail.com" 
-     class="text-gray-300 hover:text-purple-300 transition">
-    <svg class="w-7 h-7 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-    </svg>
-  </a>
-</div>
-
+                        <p class="font-semibold text-white text-lg" data-i18n="hero.follow">Sígueme</p>
+                        <a href="https://github.com/bryanjbsjuego" target="_blank" class="text-gray-300 hover:text-purple-300 transition">
+                            <svg class="w-7 h-7 md:w-8 md:h-8" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/jose-bryan-solis-jim%C3%A9nez-b434711a2/" target="_blank" class="text-gray-300 hover:text-purple-300 transition">
+                            <svg class="w-7 h-7 md:w-8 md:h-8" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                        </a>
+                        <a href="mailto:bryan.jbsj@gmail.com" class="text-gray-300 hover:text-purple-300 transition">
+                            <svg class="w-7 h-7 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                        </a>
+                    </div>
                 </div>
                 <div class="hidden md:block float-animation">
                     <div class="bg-white/10 backdrop-blur-lg rounded-3xl p-8 border border-white/20">
@@ -117,7 +114,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                                 </svg>
-                                <span>Nezahualcóyotl, México</span>
+                                <span data-i18n="hero.location">Nezahualcóyotl, México</span>
                             </div>
                             <div class="flex items-center gap-3 text-white">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -129,7 +126,7 @@
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                                 </svg>
-                                <span>Disponible para trabajar</span>
+                                <span data-i18n="hero.available">Disponible para trabajar</span>
                             </div>
                         </div>
                     </div>
@@ -141,13 +138,13 @@
     <!-- Sobre Mí -->
     <section id="sobre-mi" class="py-20 px-4 bg-white">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl font-bold text-center mb-12 gradient-text">Sobre Mí</h2>
+            <h2 class="text-4xl font-bold text-center mb-12 gradient-text" data-i18n="about.title">Sobre Mí</h2>
             <div class="max-w-3xl mx-auto">
-                <p class="text-lg text-gray-700 leading-relaxed mb-6 text-justify">
+                <p class="text-lg text-gray-700 leading-relaxed mb-6 text-justify" data-i18n="about.p1">
                     Mi perfil va enfocado en el desarrollo full stack, diseño e implementación de soluciones tecnológicas innovadoras. Poseo habilidades sólidas en backend y frontend, trabajando con diversas tecnologías para desarrollar soluciones robustas y funcionales.
                 </p>
-                <p class="text-lg text-gray-700 leading-relaxed text-justify">
-                    Comprometido con la innovación y la entrega de soluciones tecnológicas que optimizan el manejo de datos y mejoran la toma de decisiones de alto impacto. 
+                <p class="text-lg text-gray-700 leading-relaxed text-justify" data-i18n="about.p2">
+                    Comprometido con la innovación y la entrega de soluciones tecnológicas que optimizan el manejo de datos y mejoran la toma de decisiones de alto impacto.
                 </p>
             </div>
         </div>
@@ -156,56 +153,56 @@
     <!-- Experiencia -->
     <section id="experiencia" class="py-20 px-4 bg-gray-50">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Experiencia Laboral</h2>
+            <h2 class="text-4xl font-bold text-center mb-16 gradient-text" data-i18n="experience.title">Experiencia Laboral</h2>
             
             <div class="space-y-12 text-justify">
                 <!-- Infotec -->
                 <div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition">
                     <div class="flex flex-wrap justify-between items-start mb-4">
                         <div>
-                            <h3 class="text-2xl font-bold text-gray-900">Desarrollador Full Stack Semi Senior</h3>
+                            <h3 class="text-2xl font-bold text-gray-900" data-i18n="experience.infotec.title">Desarrollador Full Stack Semi Senior</h3>
                             <p class="text-primary font-semibold text-lg">Infotec</p>
                         </div>
-                        <span class="text-gray-600 font-medium">Marzo 2022 - Presente</span>
+                        <span class="text-gray-600 font-medium" data-i18n="experience.infotec.date">Marzo 2022 - Presente</span>
                     </div>
-                    <p class="text-gray-600 mb-4">Ciudad de México</p>
+                    <p class="text-gray-600 mb-4" data-i18n="experience.infotec.location">Ciudad de México</p>
                     
                     <div class="space-y-6">
                         <div>
-                            <h4 class="font-semibold text-gray-900 mb-2">💰 Sistema Administrativo de Pagos SADER</h4>
-                            <p class="text-gray-700">
+                            <h4 class="font-semibold text-gray-900 mb-2" data-i18n="experience.infotec.project1.title">💰 Sistema Administrativo de Pagos SADER</h4>
+                            <p class="text-gray-700" data-i18n="experience.infotec.project1.desc">
                                 Sistema integral en desarrollo para la gestión y administración de pagos y solicitudes de apoyo a beneficiarios de diversos programas de la Secretaría de Agricultura. Desarrollado con Spring Boot, React, JPA, Hibernate y Maven, bajo una arquitectura basada en microservicios.
                             </p>
                         </div>
 
                         <div>
-                            <h4 class="font-semibold text-gray-900 mb-2">📋 Sistema Integral de Almacén e Inventario (nivel nacional)</h4>
-                            <p class="text-gray-700">Sistema integral a nivel nacional para la gestión y control de almacenes e inventarios. Desarrollado con Laravel 10 (PHP) en el backend y JavaScript con Bootstrap en el frontend, utilizando colas, APIs y servicios REST con MySQL.</p>
+                            <h4 class="font-semibold text-gray-900 mb-2" data-i18n="experience.infotec.project2.title">📋 Sistema Integral de Almacén e Inventario (nivel nacional)</h4>
+                            <p class="text-gray-700" data-i18n="experience.infotec.project2.desc">Sistema integral a nivel nacional para la gestión y control de almacenes e inventarios. Desarrollado con Laravel 10 (PHP) en el backend y JavaScript con Bootstrap en el frontend, utilizando colas, APIs y servicios REST con MySQL.</p>
                         </div>
                         
                         <div>
-                            <h4 class="font-semibold text-gray-900 mb-2">📄 Visor de Recibos de Nómina (CFDI)</h4>
-                            <p class="text-gray-700">Sistema de consulta y descarga de recibos de nómina (CFDI). Desarrollado con Laravel 10 y Livewire 3, permite la generación automatizada de archivos CFDI y la visualización interactiva de recibos.</p>
+                            <h4 class="font-semibold text-gray-900 mb-2" data-i18n="experience.infotec.project3.title">📄 Visor de Recibos de Nómina (CFDI)</h4>
+                            <p class="text-gray-700" data-i18n="experience.infotec.project3.desc">Sistema de consulta y descarga de recibos de nómina (CFDI). Desarrollado con Laravel 10 y Livewire 3, permite la generación automatizada de archivos CFDI y la visualización interactiva de recibos.</p>
                         </div>
                         
                         <div>
-                            <h4 class="font-semibold text-gray-900 mb-2">📰 Plataforma SICRE - Administración de Notas Informativas</h4>
-                            <p class="text-gray-700">Sistema web a nivel nacional para la gestión y administración de notas. Desarrollado con Laravel 11, Vue.js 3 y Tailwind CSS, implementando una arquitectura moderna y componentes dinámicos para una interfaz eficiente y responsiva.</p>
+                            <h4 class="font-semibold text-gray-900 mb-2" data-i18n="experience.infotec.project4.title">📰 Plataforma SICRE - Administración de Notas Informativas</h4>
+                            <p class="text-gray-700" data-i18n="experience.infotec.project4.desc">Sistema web a nivel nacional para la gestión y administración de notas. Desarrollado con Laravel 11, Vue.js 3 y Tailwind CSS, implementando una arquitectura moderna y componentes dinámicos para una interfaz eficiente y responsiva.</p>
                         </div>
                         
                         <div>
-                            <h4 class="font-semibold text-gray-900 mb-2">📁 Sistema de Control Documental (SICOD)</h4>
-                            <p class="text-gray-700">Plataforma para la gestión integral de oficios y documentos, desarrollada con Laravel 12, Vue.js 3 y Tailwind CSS. Incluye comunicación en tiempo real mediante WebSocket con Laravel Reverb, gestión de estado con Pinia, visualización de datos con Chart.js y ejecución de tareas programadas para automatización de procesos.</p>
+                            <h4 class="font-semibold text-gray-900 mb-2" data-i18n="experience.infotec.project5.title">📁 Sistema de Control Documental (SICOD)</h4>
+                            <p class="text-gray-700" data-i18n="experience.infotec.project5.desc">Plataforma para la gestión integral de oficios y documentos, desarrollada con Laravel 12, Vue.js 3 y Tailwind CSS. Incluye comunicación en tiempo real mediante WebSocket con Laravel Reverb, gestión de estado con Pinia, visualización de datos con Chart.js y ejecución de tareas programadas para automatización de procesos.</p>
                         </div>
                         
                         <div>
-                            <h4 class="font-semibold text-gray-900 mb-2">🎫 Sistema de Tickets y Atención a Usuarios</h4>
-                            <p class="text-gray-700">Plataforma integral desarrollada con .NET 8, Razor Pages y el patrón MVC. Implementa Entity Framework para el manejo de datos y notificaciones automáticas por correo electrónico y WhatsApp, optimizando la gestión y seguimiento de solicitudes de soporte.</p>
+                            <h4 class="font-semibold text-gray-900 mb-2" data-i18n="experience.infotec.project6.title">🎫 Sistema de Tickets y Atención a Usuarios</h4>
+                            <p class="text-gray-700" data-i18n="experience.infotec.project6.desc">Plataforma integral desarrollada con .NET 8, Razor Pages y el patrón MVC. Implementa Entity Framework para el manejo de datos y notificaciones automáticas por correo electrónico y WhatsApp, optimizando la gestión y seguimiento de solicitudes de soporte.</p>
                         </div>
                         
                         <div>
-                            <h4 class="font-semibold text-gray-900 mb-2">💡 Plataforma de Base de Conocimientos</h4>
-                            <p class="text-gray-700">Sistema desarrollado con .NET 8, Razor Pages y el patrón MVC, utilizando Entity Framework y el Repository Pattern para el manejo eficiente de datos. Permite la gestión de preguntas y respuestas, votaciones, reputación de usuarios y administración de contenido, facilitando el intercambio y la organización del conocimiento institucional.</p>
+                            <h4 class="font-semibold text-gray-900 mb-2" data-i18n="experience.infotec.project7.title">💡 Plataforma de Base de Conocimientos</h4>
+                            <p class="text-gray-700" data-i18n="experience.infotec.project7.desc">Sistema desarrollado con .NET 8, Razor Pages y el patrón MVC, utilizando Entity Framework y el Repository Pattern para el manejo eficiente de datos. Permite la gestión de preguntas y respuestas, votaciones, reputación de usuarios y administración de contenido, facilitando el intercambio y la organización del conocimiento institucional.</p>
                         </div>
                     </div>
                 </div>
@@ -214,15 +211,15 @@
                 <div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition">
                     <div class="flex flex-wrap justify-between items-start mb-4">
                         <div>
-                            <h3 class="text-2xl font-bold text-gray-900">Becario en Programación Web y Móvil</h3>
+                            <h3 class="text-2xl font-bold text-gray-900" data-i18n="experience.valvid.title">Becario en Programación Web y Móvil</h3>
                             <p class="text-primary font-semibold text-lg">Valvid en el Hogar S. de RL. de CV.</p>
                         </div>
-                        <span class="text-gray-600 font-medium">Sep 2021 - Dic 2021</span>
+                        <span class="text-gray-600 font-medium" data-i18n="experience.valvid.date">Sep 2021 - Dic 2021</span>
                     </div>
-                    <p class="text-gray-600 mb-4">Nezahualcóyotl, Estado de México</p>
+                    <p class="text-gray-600 mb-4" data-i18n="experience.valvid.location">Nezahualcóyotl, Estado de México</p>
                     <div>
-                        <h4 class="font-semibold text-gray-900 mb-2">Proyecto ARROW</h4>
-                        <p class="text-gray-700">Sistema web multitenancy con Laravel 8 para API REST. Consumo de servicios con Kotlin y Retrofit. Administración de obras públicas con registro de avances, control y generación de reportes.</p>
+                        <h4 class="font-semibold text-gray-900 mb-2" data-i18n="experience.valvid.project.title">Proyecto ARROW</h4>
+                        <p class="text-gray-700" data-i18n="experience.valvid.project.desc">Sistema web multitenancy con Laravel 8 para API REST. Consumo de servicios con Kotlin y Retrofit. Administración de obras públicas con registro de avances, control y generación de reportes.</p>
                     </div>
                 </div>
 
@@ -230,15 +227,15 @@
                 <div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition">
                     <div class="flex flex-wrap justify-between items-start mb-4">
                         <div>
-                            <h3 class="text-2xl font-bold text-gray-900">Becario en Infraestructura - Programador</h3>
+                            <h3 class="text-2xl font-bold text-gray-900" data-i18n="experience.praxis.title">Becario en Infraestructura - Programador</h3>
                             <p class="text-primary font-semibold text-lg">Praxis México</p>
                         </div>
-                        <span class="text-gray-600 font-medium">Sep 2019 - Dic 2019</span>
+                        <span class="text-gray-600 font-medium" data-i18n="experience.praxis.date">Sep 2019 - Dic 2019</span>
                     </div>
-                    <p class="text-gray-600 mb-4">Ciudad de México</p>
+                    <p class="text-gray-600 mb-4" data-i18n="experience.praxis.location">Ciudad de México</p>
                     <div>
-                        <h4 class="font-semibold text-gray-900 mb-2">Actualización y Mantenimiento de Sistemas de Inventario TI</h4>
-                        <p class="text-gray-700">Creación del módulo de administrador para procesos de renta de equipos, nuevas adquisiciones y control de hardware/software.</p>
+                        <h4 class="font-semibold text-gray-900 mb-2" data-i18n="experience.praxis.project.title">Actualización y Mantenimiento de Sistemas de Inventario TI</h4>
+                        <p class="text-gray-700" data-i18n="experience.praxis.project.desc">Creación del módulo de administrador para procesos de renta de equipos, nuevas adquisiciones y control de hardware/software.</p>
                     </div>
                 </div>
             </div>
@@ -248,20 +245,18 @@
     <!-- Proyectos Destacados -->
     <section id="proyectos" class="py-20 px-4 bg-white">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Proyectos Destacados</h2>
+            <h2 class="text-4xl font-bold text-center mb-16 gradient-text" data-i18n="projects.title">Proyectos Destacados</h2>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Proyecto ACTUAL - Sistema de Pagos SADER -->
+                <!-- Proyecto ACTUAL -->
                 <div class="bg-gradient-to-br from-emerald-500 to-teal-500 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition relative">
-                    <div class="absolute top-4 right-4 bg-yellow-400 text-gray-900 px-3 py-1 rounded-full text-xs font-bold">
+                    <div class="absolute top-4 right-4 bg-yellow-400 text-gray-900 px-3 py-1 rounded-full text-xs font-bold" data-i18n="projects.inProgress">
                         En Desarrollo
                     </div>
-                    <div class="h-48 flex items-center justify-center text-white text-6xl">
-                        💰
-                    </div>
+                    <div class="h-48 flex items-center justify-center text-white text-6xl">💰</div>
                     <div class="bg-white p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Sistema Administrativo de Pagos SADER</h3>
-                        <p class="text-gray-600 mb-4">Sistema integral para la gestión y administración de pagos de apoyos a beneficiarios de diferentes programas de la Secretaría de Agricultura.</p>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2" data-i18n="projects.sader.title">Sistema Administrativo de Pagos SADER</h3>
+                        <p class="text-gray-600 mb-4" data-i18n="projects.sader.desc">Sistema integral para la gestión y administración de pagos de apoyos a beneficiarios de diferentes programas de la Secretaría de Agricultura.</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-sm font-medium">Spring Boot</span>
                             <span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-sm font-medium">React</span>
@@ -273,12 +268,10 @@
 
                 <!-- Proyecto 1 -->
                 <div class="bg-gradient-to-br from-primary to-secondary rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition">
-                    <div class="h-48 flex items-center justify-center text-white text-6xl">
-                        📁
-                    </div>
+                    <div class="h-48 flex items-center justify-center text-white text-6xl">📁</div>
                     <div class="bg-white p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Sistema de Control Documental</h3>
-                        <p class="text-gray-600 mb-4">Gestión completa de oficios y documentos oficiales con chat en tiempo real usando websockets.</p>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2" data-i18n="projects.sicod.title">Sistema de Control Documental</h3>
+                        <p class="text-gray-600 mb-4" data-i18n="projects.sicod.desc">Gestión completa de oficios y documentos oficiales con chat en tiempo real usando websockets.</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">Laravel 12</span>
                             <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">Vue.js 3</span>
@@ -289,12 +282,10 @@
 
                 <!-- Proyecto 2 -->
                 <div class="bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition">
-                    <div class="h-48 flex items-center justify-center text-white text-6xl">
-                        🎫
-                    </div>
+                    <div class="h-48 flex items-center justify-center text-white text-6xl">🎫</div>
                     <div class="bg-white p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Sistema de Tickets</h3>
-                        <p class="text-gray-600 mb-4">Plataforma completa de atención a usuarios con notificaciones por correo y WhatsApp.</p>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2" data-i18n="projects.tickets.title">Sistema de Tickets</h3>
+                        <p class="text-gray-600 mb-4" data-i18n="projects.tickets.desc">Plataforma completa de atención a usuarios con notificaciones por correo y WhatsApp.</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-medium">.NET 8</span>
                             <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-medium">Razor Pages</span>
@@ -305,12 +296,10 @@
 
                 <!-- Proyecto 3 -->
                 <div class="bg-gradient-to-br from-green-500 to-emerald-500 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition">
-                    <div class="h-48 flex items-center justify-center text-white text-6xl">
-                        📰
-                    </div>
+                    <div class="h-48 flex items-center justify-center text-white text-6xl">📰</div>
                     <div class="bg-white p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Plataforma SICRE</h3>
-                        <p class="text-gray-600 mb-4">Administración de notas informativas a nivel nacional con sistema completo de publicación y edición.</p>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2" data-i18n="projects.sicre.title">Plataforma SICRE</h3>
+                        <p class="text-gray-600 mb-4" data-i18n="projects.sicre.desc">Administración de notas informativas a nivel nacional con sistema completo de publicación y edición.</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-medium">Laravel 11</span>
                             <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-medium">Vue.js 3</span>
@@ -321,12 +310,10 @@
 
                 <!-- Proyecto 4 -->
                 <div class="bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition">
-                    <div class="h-48 flex items-center justify-center text-white text-6xl">
-                        📋
-                    </div>
+                    <div class="h-48 flex items-center justify-center text-white text-6xl">📋</div>
                     <div class="bg-white p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Sistema de Inventario Nacional</h3>
-                        <p class="text-gray-600 mb-4">Gestión integral de almacén e inventario a nivel nacional con APIs REST y sistema de colas.</p>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2" data-i18n="projects.inventory.title">Sistema de Inventario Nacional</h3>
+                        <p class="text-gray-600 mb-4" data-i18n="projects.inventory.desc">Gestión integral de almacén e inventario a nivel nacional con APIs REST y sistema de colas.</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm font-medium">Laravel 10</span>
                             <span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm font-medium">MySQL</span>
@@ -337,12 +324,10 @@
 
                 <!-- Proyecto 5 -->
                 <div class="bg-gradient-to-br from-indigo-500 to-purple-500 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition">
-                    <div class="h-48 flex items-center justify-center text-white text-6xl">
-                        🏗️
-                    </div>
+                    <div class="h-48 flex items-center justify-center text-white text-6xl">🏗️</div>
                     <div class="bg-white p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Proyecto ARROW</h3>
-                        <p class="text-gray-600 mb-4">Sistema multitenancy para administración de obras públicas con app móvil Android.</p>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2" data-i18n="projects.arrow.title">Proyecto ARROW</h3>
+                        <p class="text-gray-600 mb-4" data-i18n="projects.arrow.desc">Sistema multitenancy para administración de obras públicas con app móvil Android.</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm font-medium">Laravel 8</span>
                             <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm font-medium">Kotlin</span>
@@ -357,134 +342,130 @@
     <!-- Tecnologías -->
     <section id="tecnologias" class="py-20 px-4 bg-gray-50">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Stack Tecnológico</h2>
+            <h2 class="text-4xl font-bold text-center mb-16 gradient-text" data-i18n="tech.title">Stack Tecnológico</h2>
             
-           <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-    <!-- Backend -->
-    <div class="bg-white rounded-2xl p-6 shadow-lg">
-        <h3 class="text-xl font-bold text-gray-900 mb-4">Backend</h3>
-        <div class="space-y-2">
-            <span class="block bg-red-100 text-red-700 px-4 py-2 rounded-lg font-medium">PHP</span>
-            <span class="block bg-red-100 text-red-700 px-4 py-2 rounded-lg font-medium">Laravel</span>
-            <span class="block bg-blue-100 text-blue-700 px-4 py-2 rounded-lg font-medium">.NET Core 8 </span>
-            <span class="block bg-orange-100 text-orange-700 px-4 py-2 rounded-lg font-medium">Java</span>
-            <span class="block bg-green-100 text-green-700 px-4 py-2 rounded-lg font-medium">Spring Boot</span>
-            <span class="block bg-purple-100 text-purple-700 px-4 py-2 rounded-lg font-medium">Kotlin</span>
-        </div>
-    </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Backend -->
+                <div class="bg-white rounded-2xl p-6 shadow-lg">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Backend</h3>
+                    <div class="space-y-2">
+                        <span class="block bg-red-100 text-red-700 px-4 py-2 rounded-lg font-medium">PHP</span>
+                        <span class="block bg-red-100 text-red-700 px-4 py-2 rounded-lg font-medium">Laravel</span>
+                        <span class="block bg-blue-100 text-blue-700 px-4 py-2 rounded-lg font-medium">.NET Core 8</span>
+                        <span class="block bg-orange-100 text-orange-700 px-4 py-2 rounded-lg font-medium">Java</span>
+                        <span class="block bg-green-100 text-green-700 px-4 py-2 rounded-lg font-medium">Spring Boot</span>
+                        <span class="block bg-purple-100 text-purple-700 px-4 py-2 rounded-lg font-medium">Kotlin</span>
+                    </div>
+                </div>
 
-    <!-- Frontend -->
-    <div class="bg-white rounded-2xl p-6 shadow-lg">
-        <h3 class="text-xl font-bold text-gray-900 mb-4">Frontend</h3>
-        <div class="space-y-2">
-            <span class="block bg-yellow-100 text-yellow-700 px-4 py-2 rounded-lg font-medium">JavaScript</span>
-            <span class="block bg-cyan-100 text-cyan-700 px-4 py-2 rounded-lg font-medium">React</span>
-            <span class="block bg-green-100 text-green-700 px-4 py-2 rounded-lg font-medium">Vue.js 3</span>
-            <span class="block bg-purple-100 text-purple-700 px-4 py-2 rounded-lg font-medium">Livewire 3</span>
-            <span class="block bg-orange-100 text-orange-700 px-4 py-2 rounded-lg font-medium">HTML5</span>
-            <span class="block bg-cyan-100 text-cyan-700 px-4 py-2 rounded-lg font-medium">Tailwind CSS</span>
-            <span class="block bg-indigo-100 text-indigo-700 px-4 py-2 rounded-lg font-medium">Bootstrap</span>
-            <span class="block bg-gray-100 text-gray-700 px-4 py-2 rounded-lg font-medium">Razor</span>
-        </div>
-    </div>
+                <!-- Frontend -->
+                <div class="bg-white rounded-2xl p-6 shadow-lg">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Frontend</h3>
+                    <div class="space-y-2">
+                        <span class="block bg-yellow-100 text-yellow-700 px-4 py-2 rounded-lg font-medium">JavaScript</span>
+                        <span class="block bg-cyan-100 text-cyan-700 px-4 py-2 rounded-lg font-medium">React</span>
+                        <span class="block bg-green-100 text-green-700 px-4 py-2 rounded-lg font-medium">Vue.js 3</span>
+                        <span class="block bg-purple-100 text-purple-700 px-4 py-2 rounded-lg font-medium">Livewire 3</span>
+                        <span class="block bg-orange-100 text-orange-700 px-4 py-2 rounded-lg font-medium">HTML5</span>
+                        <span class="block bg-cyan-100 text-cyan-700 px-4 py-2 rounded-lg font-medium">Tailwind CSS</span>
+                        <span class="block bg-indigo-100 text-indigo-700 px-4 py-2 rounded-lg font-medium">Bootstrap</span>
+                        <span class="block bg-gray-100 text-gray-700 px-4 py-2 rounded-lg font-medium">Razor</span>
+                    </div>
+                </div>
 
-    <!-- Bases de Datos & ORM -->
-    <div class="bg-white rounded-2xl p-6 shadow-lg">
-        <h3 class="text-xl font-bold text-gray-900 mb-4">Bases de Datos & ORM</h3>
-        <div class="space-y-2">
-            <!-- Bases de Datos -->
-            <span class="block bg-blue-100 text-blue-700 px-4 py-2 rounded-lg font-medium">MySQL</span>
-            <span class="block bg-blue-100 text-blue-700 px-4 py-2 rounded-lg font-medium">PostgreSQL</span>
-            <span class="block bg-red-100 text-red-700 px-4 py-2 rounded-lg font-medium">Oracle</span>
-            <!-- ORMs -->
-            <span class="block bg-orange-100 text-orange-700 px-4 py-2 rounded-lg font-medium">JPA</span>
-            <span class="block bg-yellow-100 text-yellow-700 px-4 py-2 rounded-lg font-medium">Hibernate</span>
-            <span class="block bg-blue-100 text-blue-700 px-4 py-2 rounded-lg font-medium">Entity Framework</span>
-        </div>
-    </div>
+                <!-- Bases de Datos & ORM -->
+                <div class="bg-white rounded-2xl p-6 shadow-lg">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4" data-i18n="tech.database">Bases de Datos & ORM</h3>
+                    <div class="space-y-2">
+                        <span class="block bg-blue-100 text-blue-700 px-4 py-2 rounded-lg font-medium">MySQL</span>
+                        <span class="block bg-blue-100 text-blue-700 px-4 py-2 rounded-lg font-medium">PostgreSQL</span>
+                        <span class="block bg-red-100 text-red-700 px-4 py-2 rounded-lg font-medium">Oracle</span>
+                        <span class="block bg-orange-100 text-orange-700 px-4 py-2 rounded-lg font-medium">JPA</span>
+                        <span class="block bg-yellow-100 text-yellow-700 px-4 py-2 rounded-lg font-medium">Hibernate</span>
+                        <span class="block bg-blue-100 text-blue-700 px-4 py-2 rounded-lg font-medium">Entity Framework</span>
+                    </div>
+                </div>
 
-    <!-- Herramientas -->
-    <div class="bg-white rounded-2xl p-6 shadow-lg">
-        <h3 class="text-xl font-bold text-gray-900 mb-4">Herramientas</h3>
-        <div class="space-y-2">
-            <span class="block bg-orange-100 text-orange-700 px-4 py-2 rounded-lg font-medium">Git</span>
-            <span class="block bg-red-100 text-red-700 px-4 py-2 rounded-lg font-medium">Maven</span>
-            <span class="block bg-blue-100 text-blue-700 px-4 py-2 rounded-lg font-medium">Docker</span>
-            <span class="block bg-green-100 text-green-700 px-4 py-2 rounded-lg font-medium">API REST</span>
-            <span class="block bg-purple-100 text-purple-700 px-4 py-2 rounded-lg font-medium">SOLID</span>
-            <span class="block bg-blue-100 text-blue-700 px-4 py-2 rounded-lg font-medium">Scrum</span>
-            <span class="block bg-gray-100 text-gray-700 px-4 py-2 rounded-lg font-medium">Linux Servers</span>
-        </div>
-    </div>
-</div>
+                <!-- Herramientas -->
+                <div class="bg-white rounded-2xl p-6 shadow-lg">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4" data-i18n="tech.tools">Herramientas</h3>
+                    <div class="space-y-2">
+                        <span class="block bg-orange-100 text-orange-700 px-4 py-2 rounded-lg font-medium">Git</span>
+                        <span class="block bg-red-100 text-red-700 px-4 py-2 rounded-lg font-medium">Maven</span>
+                        <span class="block bg-blue-100 text-blue-700 px-4 py-2 rounded-lg font-medium">Docker</span>
+                        <span class="block bg-green-100 text-green-700 px-4 py-2 rounded-lg font-medium">API REST</span>
+                        <span class="block bg-purple-100 text-purple-700 px-4 py-2 rounded-lg font-medium">SOLID</span>
+                        <span class="block bg-blue-100 text-blue-700 px-4 py-2 rounded-lg font-medium">Scrum</span>
+                        <span class="block bg-gray-100 text-gray-700 px-4 py-2 rounded-lg font-medium">Linux Servers</span>
+                    </div>
+                </div>
+            </div>
 
-<!-- Patrones de Diseño -->
-<div class="mt-12">
-    <h3 class="text-2xl font-bold text-center text-gray-900 mb-6">⚙️ Patrones de Diseño y Arquitectura Aplicados en Proyectos</h3>
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div class="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-4 border-2 border-indigo-200 hover:shadow-lg transition">
-            <div class="text-3xl mb-2">🏗️</div>
-            <h4 class="font-bold text-gray-900 mb-1">MVC</h4>
-            <p class="text-sm text-gray-600">Model-View-Controller</p>
-        </div>
-        <div class="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-4 border-2 border-blue-200 hover:shadow-lg transition">
-            <div class="text-3xl mb-2">📦</div>
-            <h4 class="font-bold text-gray-900 mb-1">Repository Pattern</h4>
-            <p class="text-sm text-gray-600">Abstracción de datos (incluye Entity Framework)</p>
-        </div>
-        <div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-4 border-2 border-green-200 hover:shadow-lg transition">
-            <div class="text-3xl mb-2">🔧</div>
-            <h4 class="font-bold text-gray-900 mb-1">Service Layer</h4>
-            <p class="text-sm text-gray-600">Lógica de negocio</p>
-        </div>
-        <div class="bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl p-4 border-2 border-orange-200 hover:shadow-lg transition">
-            <div class="text-3xl mb-2">🔗</div>
-            <h4 class="font-bold text-gray-900 mb-1">Microservicios</h4>
-            <p class="text-sm text-gray-600">Arquitectura distribuida</p>
-        </div>
-    </div>
-</div>
-    
-        
+            <!-- Patrones de Diseño -->
+            <div class="mt-12">
+                <h3 class="text-2xl font-bold text-center text-gray-900 mb-6" data-i18n="tech.patterns">⚙️ Patrones de Diseño y Arquitectura Aplicados en Proyectos</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-4 border-2 border-indigo-200 hover:shadow-lg transition">
+                        <div class="text-3xl mb-2">🏗️</div>
+                        <h4 class="font-bold text-gray-900 mb-1">MVC</h4>
+                        <p class="text-sm text-gray-600">Model-View-Controller</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-4 border-2 border-blue-200 hover:shadow-lg transition">
+                        <div class="text-3xl mb-2">📦</div>
+                        <h4 class="font-bold text-gray-900 mb-1">Repository Pattern</h4>
+                        <p class="text-sm text-gray-600" data-i18n="tech.patterns.repository">Abstracción de datos (incluye Entity Framework)</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-4 border-2 border-green-200 hover:shadow-lg transition">
+                        <div class="text-3xl mb-2">🔧</div>
+                        <h4 class="font-bold text-gray-900 mb-1">Service Layer</h4>
+                        <p class="text-sm text-gray-600" data-i18n="tech.patterns.service">Lógica de negocio</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl p-4 border-2 border-orange-200 hover:shadow-lg transition">
+                        <div class="text-3xl mb-2">🔗</div>
+                        <h4 class="font-bold text-gray-900 mb-1" data-i18n="tech.patterns.micro">Microservicios</h4>
+                        <p class="text-sm text-gray-600" data-i18n="tech.patterns.microDesc">Arquitectura distribuida</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Educación -->
     <section class="py-20 px-4 bg-white">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Educación</h2>
+            <h2 class="text-4xl font-bold text-center mb-16 gradient-text" data-i18n="education.title">Educación</h2>
             
             <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
                 <div class="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl p-6 border-2 border-primary/20">
                     <div class="text-4xl mb-4">🎓</div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Ingeniero en TIC</h3>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2" data-i18n="education.degree1.title">Ingeniero en TIC</h3>
                     <p class="text-primary font-semibold mb-2">Universidad Tecnológica de Nezahualcóyotl</p>
-                    <p class="text-gray-600">Abril 2020 - Diciembre 2021</p>
+                    <p class="text-gray-600" data-i18n="education.degree1.date">Abril 2020 - Diciembre 2021</p>
                 </div>
 
                 <div class="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl p-6 border-2 border-primary/20">
                     <div class="text-4xl mb-4">🎓</div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">TSU en TIC</h3>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2" data-i18n="education.degree2.title">TSU en TIC</h3>
                     <p class="text-primary font-semibold mb-2">Universidad Tecnológica de Nezahualcóyotl</p>
-                    <p class="text-gray-600">Enero 2018 - Diciembre 2019</p>
+                    <p class="text-gray-600" data-i18n="education.degree2.date">Enero 2018 - Diciembre 2019</p>
                 </div>
 
                 <div class="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl p-6 border-2 border-primary/20">
                     <div class="text-4xl mb-4">📚</div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Profesional Técnico-Bachiller</h3>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2" data-i18n="education.degree3.title">Profesional Técnico-Bachiller</h3>
                     <p class="text-primary font-semibold mb-2">Conalep Nezahualcóyotl 2</p>
-                    <p class="text-gray-600">Agosto 2011 - Julio 2014</p>
-                    <p class="text-sm text-gray-600 mt-2">Especialidad: Autotrónica</p>
+                    <p class="text-gray-600" data-i18n="education.degree3.date">Agosto 2011 - Julio 2014</p>
+                    <p class="text-sm text-gray-600 mt-2" data-i18n="education.degree3.specialty">Especialidad: Autotrónica</p>
                 </div>
 
                 <div class="bg-gradient-to-br from-purple-100 to-pink-100 rounded-2xl p-6 border-2 border-purple-200">
                     <div class="text-4xl mb-4">📖</div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Cursos Especializados</h3>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2" data-i18n="education.courses.title">Cursos Especializados</h3>
                     <ul class="space-y-2 text-gray-700">
-                        <li>✓ Desarrollo Web en PHP, MVC, POO y MySQL</li>
-                        <li>✓ Laravel y Android con JWT y Kotlin</li>
-                        <li>✓ Sistema con Laravel 11 y Vue 3</li>
-                        <li>✓ React & Spring Boot Full Stack</li>
+                        <li data-i18n="education.courses.course1">✓ Desarrollo Web en PHP, MVC, POO y MySQL</li>
+                        <li data-i18n="education.courses.course2">✓ Laravel y Android con JWT y Kotlin</li>
+                        <li data-i18n="education.courses.course3">✓ Sistema con Laravel 11 y Vue 3</li>
+                        <li data-i18n="education.courses.course4">✓ React & Spring Boot Full Stack</li>
                     </ul>
                 </div>
             </div>
@@ -494,8 +475,8 @@
     <!-- Contacto -->
     <section id="contacto" class="py-20 px-4 bg-gradient-to-br from-primary via-purple-600 to-secondary">
         <div class="max-w-4xl mx-auto">
-            <h2 class="text-4xl font-bold text-center mb-4 text-white">¿Listo para trabajar juntos?</h2>
-            <p class="text-center text-purple-100 mb-12 text-lg">Estoy disponible para proyectos freelance o tiempo completo</p>
+            <h2 class="text-4xl font-bold text-center mb-4 text-white" data-i18n="contact.title">¿Listo para trabajar juntos?</h2>
+            <p class="text-center text-purple-100 mb-12 text-lg" data-i18n="contact.subtitle">Estoy disponible para proyectos freelance o tiempo completo</p>
             
             <div class="grid md:grid-cols-2 gap-8 mb-12">
                 <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20">
@@ -520,7 +501,7 @@
                             </svg>
                         </div>
                         <div>
-                            <h3 class="text-white font-semibold mb-1">Teléfono</h3>
+                            <h3 class="text-white font-semibold mb-1" data-i18n="contact.phone">Teléfono</h3>
                             <a href="tel:5586199940" class="text-purple-200 hover:text-white transition">558 619 9940</a>
                         </div>
                     </div>
@@ -535,8 +516,8 @@
                             </svg>
                         </div>
                         <div>
-                            <h3 class="text-white font-semibold mb-1">Ubicación</h3>
-                            <p class="text-purple-200">Nezahualcóyotl, Estado de México</p>
+                            <h3 class="text-white font-semibold mb-1" data-i18n="contact.location">Ubicación</h3>
+                            <p class="text-purple-200" data-i18n="contact.locationValue">Nezahualcóyotl, Estado de México</p>
                         </div>
                     </div>
                 </div>
@@ -549,17 +530,17 @@
                             </svg>
                         </div>
                         <div>
-                            <h3 class="text-white font-semibold mb-1">Disponibilidad</h3>
-                            <p class="text-purple-200">Disponible para trabajar</p>
+                            <h3 class="text-white font-semibold mb-1" data-i18n="contact.availability">Disponibilidad</h3>
+                            <p class="text-purple-200" data-i18n="contact.availabilityValue">Disponible para trabajar</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <form class="bg-white rounded-2xl p-8 shadow-2xl" onsubmit="handleSubmit(event)">
+            <!-- <form class="bg-white rounded-2xl p-8 shadow-2xl" onsubmit="handleSubmit(event)">
                 <div class="grid md:grid-cols-2 gap-6 mb-6">
                     <div>
-                        <label class="block text-gray-700 font-semibold mb-2">Nombre</label>
+                        <label class="block text-gray-700 font-semibold mb-2" data-i18n="contact.form.name">Nombre</label>
                         <input type="text" required class="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-primary focus:outline-none transition">
                     </div>
                     <div>
@@ -568,27 +549,25 @@
                     </div>
                 </div>
                 <div class="mb-6">
-                    <label class="block text-gray-700 font-semibold mb-2">Asunto</label>
+                    <label class="block text-gray-700 font-semibold mb-2" data-i18n="contact.form.subject">Asunto</label>
                     <input type="text" required class="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-primary focus:outline-none transition">
                 </div>
                 <div class="mb-6">
-                    <label class="block text-gray-700 font-semibold mb-2">Mensaje</label>
+                    <label class="block text-gray-700 font-semibold mb-2" data-i18n="contact.form.message">Mensaje</label>
                     <textarea required rows="5" class="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-primary focus:outline-none transition resize-none"></textarea>
                 </div>
-                <button type="submit" class="w-full bg-gradient-to-r from-primary to-secondary text-white font-bold py-4 rounded-lg hover:shadow-xl transform hover:-translate-y-1 transition">
+                <button type="submit" class="w-full bg-gradient-to-r from-primary to-secondary text-white font-bold py-4 rounded-lg hover:shadow-xl transform hover:-translate-y-1 transition" data-i18n="contact.form.submit">
                     Enviar Mensaje
                 </button>
-            </form>
+            </form> -->
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12 px-4">
         <div class="max-w-7xl mx-auto">
-            <div class="grid md:grid-cols-3 gap-8 mb-8">
-            </div>
             <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
-                <p>&copy; 2025 José Bryan Solis Jiménez. Todos los derechos reservados.</p>
+                <p data-i18n="footer.rights">&copy; 2025 José Bryan Solis Jiménez. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
@@ -600,6 +579,6 @@
         </svg>
     </button>
 
-    <script src="app.js" ></script>
+    <script src="app.js"></script>
 </body>
 </html>
